@@ -5,13 +5,16 @@ A game where cells eat other cells.
 # Steps to run
 1. From root directory: npm install
 2. From client directory: bower install
-3. Create an agar database for MySQL (can be done from any directory)
-   - On macs, mysql -uroot <password> (this should open the MySQL command line interface)
+3. Stop any instances of MySQL servers running, and then restart
+   - On macs, to stop server: mysql.server stop
+   - On macs, to start server: mysql.server start
+4. Create an agar database for MySQL (can be done from any directory)
+   - On macs: mysql -uroot <password> (this should open the MySQL command line interface)
    - CREATE DATABASE agar; (type this in MySQL and verify the database has been created)
-4. Change the root password for MySQL in the DB folder
+5. Change the root password for MySQL in the DB folder
    - Open up ./DB/models.js
    - Change the third parameter in the Sequelize constructor to be your root MySQL password
-5. Run the server
+6. Run the server
    - From the parent directory, run the following command: node ./server/server.js
    - Watch terminal for server messages based on user logins and server errors
 
@@ -38,3 +41,14 @@ This folder holds all of the data for the https://angularjs.org/ usage. Controll
 
 # ./client/js/game
 This folder holds all of the code for the use of the Phaser game engine: http://phaser.io/. The result from the engine code is rendered on the gameDiv div in the index.html page.
+Below are some helpful links for the Phaser engine:
+   - Phase groups (used for maintaining player cells):
+      http://phaser.io/docs/2.4.3/Phaser.Group.html
+   - Sprites, used for rendering/drawing walls, players, and food:
+      http://phaser.io/docs/2.4.3/Phaser.Sprite.html
+   - Arcade Physics, the current physics interpretation used for collisions:
+      http://phaser.io/docs#arcadephysics
+   - Interacting with individual physics bodies using Arcade Physics:
+      http://phaser.io/docs/2.4.3/Phaser.Physics.Arcade.Body.html
+   - Phaser Cheatsheet:
+      http://invrse.co/phaser-cheatsheet/
